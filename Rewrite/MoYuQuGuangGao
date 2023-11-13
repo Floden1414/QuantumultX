@@ -1,0 +1,186 @@
+// ==UserScript==
+// @ScriptName        墨鱼去开屏𝐕𝟐.𝟎
+// @Author            @ddgksf2013, @blackmatrix7, @app2smile, @DivineEngine, @kyle, @Nick-workflow, @kkpp, @LE
+// @TgChannel         𝐡𝐭𝐭𝐩𝐬://𝐭.𝐦𝐞/𝐝𝐝𝐠𝐤𝐬𝐟𝟐𝟎𝟐𝟏
+// @TgBot             https://t.me/ddgksf2013_bot
+// @WechatID          公众号墨鱼手记
+// @Feedback          💡 请通过邮件反馈问题『其它方式一概无视』：𝐝𝐝𝐠𝐤𝐬𝐟𝟐𝟎𝟏𝟑@𝟏𝟔𝟑.𝐜𝐨𝐦 💡
+// @UpdateTime        2023-11-09
+// @Please            如需引用请注明出处，谢谢合作！
+// @Function          去除APP首页启动广告和部分应用内广告，如果有需要的去除广告的APP，可以公众号后台直接回复
+// @ExtraTxt          Only provide the removal of open-screen advertisements for personally used apps
+// @Attention         QuantumultX能去广告，不代表能去所有广告！（应用个数：236）
+// @Mark              名字后面的*代表该应用启动倒计时仍然存在
+// @Attention         去除url-and-header写法，使部分重写兼容旧版QX
+// @APPList           无法𝐌𝐈𝐓𝐌的应用：银行类[绝大部分]|抖音|蜂巢|滴答清单|Taio|小米运动|有条下载|Fileball|万年历|豆瓣[信息流]|虎牙直播|货拉拉|番茄小说|携程旅行[APP]|凯叔讲故事|七猫小说|醒图|剪映|潮汐|不背单词|高铁管家|咕咚运动|APTV|DayOne
+// @Attention         如果广告仍然存在，请『卸载应用』重新安装，还是不行则表示『规则里没有或已失效』
+// @ScriptURL         https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/StartUp.conf
+// ==/UserScript==
+
+
+
+# ======= ~ ====== #
+
+#以下重写请自行添加，本重写引用不含[喜马拉雅、哔哩哔哩、微博(国际版)、Youtube、Keep、百度贴吧、知乎、高德地图、小红书、网易云、百度地图、什么值得买、皮皮虾]去广告
+;https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/Ximalaya.conf
+;https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/Bilibili.conf
+;https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/Weibo.conf
+;https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/YoutubeAds.conf
+;https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/KeepStyle.conf
+;https://github.com/app2smile/rules/raw/master/module/tieba-qx.conf
+;https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zheye/zheye.snippet
+;https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/Amap.conf
+;https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/XiaoHongShu.conf
+;https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/Netease.conf
+;https://gist.githubusercontent.com/ddgksf2013/beec132ca0c3570ffa0cf331bce8f82a/raw/baidumap.adblock.conf
+;https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.qxrewrite
+;https://gist.githubusercontent.com/ddgksf2013/bb1dadbd32f67c68772caebcc70b0a33/raw/pipixia.adblock.js
+
+
+
+hostname = apapia-sqk.manmanbuy.com, tcmobileapi.17usoft.com, newclient.map.baidu.com, bdsp-x.jd.com, dsp-x.jd.com, api.m.jd.com, app-gw.csdn.net, cn-acs.m.cainiao.com, m.client.10010.com, ad.12306.cn, open.e.kuaishou.com, api.pinduoduo.com, api.yangkeduo.com, learn.chaoxing.com, list-app-m.i4.cn, peisongapi.meituan.com, img.meituan.net, discardrp.umetrip.com, startup.umetrip.com, www.meituan.com, flowplus.meituan.net, p*.meituan.net, s3plus.meituan.net, wmapi.meituan.com, appapi.huazhu.com, api.wfdata.club, interface*.music.163.com, mp.weixin.qq.com, security.wechat.com, weixin110.qq.com, rtbapi.douyucdn.cn, gab.122.gov.cn, tagit.hyhuo.com, top-widgets-api.xiaozujian.com, api.zhihu.com, res.xiaojukeji.com,  business.msstatic.com,  elemecdn.com, fuss10.elemecdn.com, www1.elecfans.com, 
+ api.douban.com, ma-adx.ctrip.com, mbd.baidu.com, *.hoopchina.com, goblin.hupu.com
+
+
+
+
+
+# ======= 0~9 ======= #
+
+# > 555
+^https?:\/\/[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+){1,3}:\d+\/api\/v\d\/advert url reject
+^https?:\/\/[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+){1,3}:\d+\/api\/v\d\/movie\/index_recommend url script-response-body https://github.com/ddgksf2013/Scripts/raw/master/555Ad.js
+# > 12123
+^https:\/\/gab\.122\.gov\.cn\/eapp\/m\/sysquery url reject
+# > 12306
+^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList url script-analyze-echo-response https://github.com/ddgksf2013/Scripts/raw/master/12306.js
+
+# > 百度地图
+^https:\/\/newclient\.map\.baidu\.com\/client\/phpui2\/\?qt=ads url script-response-body https://raw.githubusercontent.com/app2smile/rules/master/js/baidumap.js
+# > 菜鸟
+^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.(show|mshow)\.cn\/ url reject
+# > csdn
+^https?:\/\/app-gw\.csdn\.net\/silkroad-api\/api\/v\d\/assemble\/list\/pub\/channel\/app_open_screen_ad url reject
+# > 超星学习通
+^https?:\/\/learn\.chaoxing\.com\/apis\/service\/appConfig url reject
+
+# > 豆瓣
+^https?:\/\/api\.douban\.com\/v2\/app_ads\/splash url reject
+^https?:\/\/api\.douban\.com\/b.*\/common_ads\?.* url reject
+# > 滴滴出行
+https?://res\.xiaojukeji\.com\/resapi\/activity\/mget url reject
+https?:\/\/res\.xiaojukeji\.com\/resapi\/activity\/get(Ruled|Preload|PasMultiNotices) url reject
+# > 斗鱼
+^https?:\/\/rtbapi\.douyucdn\.cn\/japi\/sign\/app\/getinfo url reject
+
+# ======= E ======= #
+
+# > 饿了么
+^https?:\/\/elemecdn.com\/.+\/sitemap url reject
+^https?:\/\/fuss10.elemecdn.com\/.+\/w\/640\/h\/\d{3,4} url reject
+^https?:\/\/fuss10.elemecdn.com\/.+\/w\/750\/h\/\d{3,4} url reject
+^https?:\/\/fuss10.elemecdn.com\/.+.mp4 url reject
+^https?:\/\/www1.elecfans.com\/www\/delivery\/ url reject
+
+
+
+# ======= H ======= #
+
+# > 华住会
+^https?:\/\/appapi\.huazhu\.com:\d{4}\/client\/app\/getAppStartPage\/ url reject
+# > 虎扑
+^https?:\/\/i\d\.hoopchina\.com\.cn/blogfile\//d+\//d+\/BbsImg\.(?<=(big.(png|jpg)))$ url reject-img
+^https?:\/\/games\.mobileapi\.hupu\.com\/.+\/(search|interfaceAdMonitor|status|hupuBbsPm)/(hotkey|init|hupuBbsPm)\. url reject-img
+^https?:\/\/games\.mobileapi\.hupu\.com\/interfaceAdMonitor url reject-img
+^https?:\/\/goblin\.hupu\.com\/.+\/interfaceAd\/getOther url reject
+^https?:\/\/i1\.hoopchina\.com\.cn\/blogfile\/.+_\d{3}x\d{4} url reject-img
+
+# > 虎牙直播
+^https?:\/\/business\.msstatic\.com\/advertiser\/material url reject
+# > 航旅纵横
+^https?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/native url reject
+^https?:\/\/(114\.115\.217\.129)|(home\.umetrip\.com)\/gateway\/api\/umetrip\/native$ url script-response-header https://github.com/ddgksf2013/Scripts/raw/master/hanglvzongheng.js
+
+# ======= I ======= #
+
+# > i4
+^https?:\/\/list-app-m\.i4\.cn\/getopfstadinfo\.xhtml url reject
+
+
+# ======= J ======= #
+
+# > 京东
+^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(start|queryMaterialAdverts) url reject-200
+^https?:\/\/(bdsp-x|dsp-x)\.jd\.com\/adx\/ url reject-200
+^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(hotWords|hotSearchTerms) url script-response-body https://github.com/ddgksf2013/Scripts/raw/master/jd_json.js
+
+
+
+# ======= K ======= #
+
+# > 快手
+^https:\/\/open\.e\.kuaishou\.com\/rest\/e\/v3\/open\/univ url reject
+
+
+# ======= L ======= #
+
+# > 拦截100
+https://tagit.hyhuo.com/recover/list url reject
+
+
+# ======= M ======= #
+
+# > 美团
+^https?:\/\/peisongapi\.meituan\.com\/client\/getInitiateImage url reject
+^https?:\/\/img\.meituan\.net\/(adunion|display|midas)\/\w+\.(gif|jpg|jpg\.webp)$ url reject
+^https?:\/\/(s3plus|flowplus)\.meituan\.net\/v\d\/\w+\/linglong\/\w+\.(gif|jpg|mp4) url reject
+^https?:\/\/p\d\.meituan\.net\/(bizad|wmbanner)\/\w+\.jpg url reject
+^https?:\/\/p\d\.meituan\.net\/movie\/\w+\.jpg\?may_covertWebp url reject
+# > 美团外卖
+^https?:\/\/img\.meituan\.net\/(bizad|brandCpt)\/\w+\.(png|jpg) url reject
+^https?:\/\/.*\.meituan\.com\/api\/v\d\/(openscreen\?ad|appstatus\?ad|loadInfo\?|startpicture) url reject
+^http:\/\/s3plus\.meituan\.net\/.*\/brandcpt-vedio\/.*\?time url reject
+# > 慢慢卖
+^https?:\/\/apapia-sqk\.manmanbuy\.com\/index_json\.ashx url response-body splashAD response-body ddgksf2013
+
+
+
+# ======= P ======= #
+
+# > 拼多多
+^https?:\/\/api\.(pinduoduo|yangkeduo)\.com\/api\/cappuccino\/splash url reject
+
+
+# ======= T ======= #
+
+# > topwidget万能小组件
+https://top-widgets-api.xiaozujian.com/api/ad/config url reject
+# > 同程旅行
+^https?:\/\/tcmobileapi\.17usoft\.com\/appindexnew\/index\/getappindexconfig url reject
+
+
+# ======= W ======= #
+# > WeChat110
+^https\:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\? url script-response-body https://raw.githubusercontent.com/zZPiglet/Task/master/asset/UnblockURLinWeChat.js
+# > 微信
+^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad url response-body advertisement response-body ddgksf2013
+# > 威锋
+^https?:\/\/api\.wfdata\.club\/v2\/yesfeng\/(infoCenterAd|yesList) url reject
+#^https?:\/\/api\.wfdata\.club\/v\d\/search\/hot\? url response-body dataList":\[.+\] response-body dataList":[{}]
+
+
+# > 携程
+^https:\/\/ma-adx\.ctrip\.com\/_ma\.gif url reject
+^https:\/\/mbd\.baidu\.com\/newspage\/api\/getmobads\?page\=landingshare url reject
+
+
+# ======= Z ======= #
+# > 中国联通
+^https?:\/\/m\.client\.10010\.com\/mobileService\/(activity|customer)\/(accountListData|get_client_adv|get_startadv) url reject
+^https?:\/\/m\.client\.10010\.com\/uniAdmsInterface\/(getHomePageAd|getWelcomeAd) url reject
+# > 知乎
+^https?:\/\/api\.zhihu\.com\/commercial_api.*launch_v2 url script-response-body https://github.com/ddgksf2013/Scripts/raw/master/zhihu_openads.js
+
+
+
+
