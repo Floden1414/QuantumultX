@@ -667,26 +667,26 @@ HOST,mobileads.msn.com, reject
 # HOST,ads5-normal-lq.zijieapi.com, reject
 
 # (N)
-# > 网易
-HOST-SUFFIX,dsp.youdao.com, reject
-HOST-SUFFIX,union.youdao.com, reject
-HOST,ad.bn.netease.com, reject
-HOST,ad.yixin.im, reject
-HOST,admusicpic.music.126.net, reject
-HOST,g1.163.com, reject
-HOST,gorgon.youdao.com, reject
-HOST,iad.g.163.com, reject
-HOST,iadmat.nosdn.127.net, reject
-HOST,iadmusicmat.music.126.net, reject
-HOST,iadmusicmatvideo.music.126.net, reject
-HOST,impservice.dictapp.youdao.com, reject
-HOST,impservice.youdao.com, reject
-HOST,n.3g.163.com, reject
-HOST,nex.163.com, reject
-HOST,yt-adp.nosdn.127.net, reject
-HOST,yt-adp.ws.126.net, reject
-# > 网易云
-host-keyword, ossgw.alicdn.com, reject
+# # > 网易
+# HOST-SUFFIX,dsp.youdao.com, reject
+# HOST-SUFFIX,union.youdao.com, reject
+# HOST,ad.bn.netease.com, reject
+# HOST,ad.yixin.im, reject
+# HOST,admusicpic.music.126.net, reject
+# HOST,g1.163.com, reject
+# HOST,gorgon.youdao.com, reject
+# HOST,iad.g.163.com, reject
+# HOST,iadmat.nosdn.127.net, reject
+# HOST,iadmusicmat.music.126.net, reject
+# HOST,iadmusicmatvideo.music.126.net, reject
+# HOST,impservice.dictapp.youdao.com, reject
+# HOST,impservice.youdao.com, reject
+# HOST,n.3g.163.com, reject
+# HOST,nex.163.com, reject
+# HOST,yt-adp.nosdn.127.net, reject
+# HOST,yt-adp.ws.126.net, reject
+# # > 网易云
+# host-keyword, ossgw.alicdn.com, reject
 # (P)
 # # > 今日头条
 # host, dm.toutiao.com, reject
